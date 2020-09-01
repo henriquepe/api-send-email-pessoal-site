@@ -11,5 +11,5 @@ server.use(routes);
 const PORT = process.env.PORT || 5000
 
 server.listen(PORT, () => {
-    console.log('server is working');
+    console.log(`server is working on port ${PORT}`);
 })
