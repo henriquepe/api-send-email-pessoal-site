@@ -5,12 +5,15 @@ import {sendEmail} from '../middlewares/sendding_email';
 const routes = Router();
 
 
-routes.post('/', async(request, response) => {
-    const {name, from, text, celular} = request.body;
+routes.post('/', (request, response) => {
 
-    const message = sendEmail(name, from, text, celular);
+    
+        const {name, from, text, celular} = request.body;
 
-    return response.json({message: message})
+        const message = sendEmail(name, from, text, celular);
+
+        return response.json({message: message})
+    
     
 })
 

@@ -1,24 +1,32 @@
 import nodemailer from 'nodemailer';
 import {authData} from './auth';
 
+
 export function sendEmail(name: string, from: string, text: string, celular: string) {
+
+	const {user, pass} = authData;
 
     let transporter = nodemailer.createTransport({
 	
 		//porta smtp
-		host: 'smtp.umbler.com ',
+		host: 'smtp.umbler.com',
 		//porta smtp do gmail
         port: 587,
-        secure:false,
+		secure: false,
+		
         
-		auth: authData
+		auth: {
+			user,
+			pass,
+		}
 });
 
 
 transporter.sendMail({
-	from: `${name} |${from}| --> <${from}>`,
-	to: "adm@codingonsaucer.com",
+	from: `${name} |${from}| --> <${user}>`,
+	to: `${user}`,
 	subject: `Novo Contato (${name})`,
+
 
 	html: `
 		<h1>Contato de: ${name}</h2>

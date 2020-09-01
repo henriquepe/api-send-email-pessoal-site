@@ -8,7 +8,7 @@ server.use(cors());
 server.use(express.json());
 server.use(routes);
 
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 5000;
 
 server.listen(PORT, () => {
     console.log(`server is working on port ${PORT}`);
