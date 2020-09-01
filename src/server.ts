@@ -8,7 +8,8 @@ server.use(cors());
 server.use(express.json());
 server.use(routes);
 
+const PORT = process.env.PORT || 5000
 
-server.listen(3333, () => {
-    console.log('server is working on port 3333');
+server.listen(PORT, () => {
+    console.log('server is working');
 })
