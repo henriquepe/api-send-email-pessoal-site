@@ -11,8 +11,8 @@ export function sendEmail(name: string, from: string, text: string, celular: str
         secure:false,
         
 		auth: {
-			user: 'henrique.p.espindola@gmail.com',
-			pass: 'rosa1702',
+			user: 'h.pires06@gmail.com',
+			pass: 'hped103540',
 
 		}
 });
