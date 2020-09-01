@@ -26,6 +26,7 @@ transporter.sendMail({
 	from: `${name} |${from}| --> <${user}>`,
 	to: `${user}`,
 	subject: `Novo Contato (${name})`,
+	replyTo: `${from}`,
 
 
 	html: `
