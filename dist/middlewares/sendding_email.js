@@ -5,23 +5,24 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sendEmail = void 0;
 var nodemailer_1 = __importDefault(require("nodemailer"));
+var auth_1 = require("./auth");
 function sendEmail(name, from, text, celular) {
+    var user = auth_1.authData.user, pass = auth_1.authData.pass;
     var transporter = nodemailer_1.default.createTransport({
         //porta smtp
-        host: 'smtp.gmail.com',
+        host: 'smtp.umbler.com',
         //porta smtp do gmail
         port: 587,
         secure: false,
         auth: {
-            user: 'henrique.p.espindola@gmail.com',
-            pass: 'rosa1702',
+            user: user,
+            pass: pass,
         }
     });
     transporter.sendMail({
-        from: name + " |" + from + "| --> <" + from + ">",
-        to: "henrique.p.espindola@gmail.com",
-        subject: 'Novo Contato',
-        text: "\n\t\tContato de: " + name + ",\n\n\t\tE-mail: " + from + ",\n\n\t\tMensagem:\n\n\n\t\t" + text + "\n\t",
+        from: name + " |" + from + "| --> <" + user + ">",
+        to: "" + user,
+        subject: "Novo Contato (" + name + ")",
         html: "\n\t\t<h1>Contato de: " + name + "</h2>\n\t\t<br>\n\t\t<h2>E-mail: " + from + "</h2>\n\t\t\n\t\t<h2>Celular: " + celular + "</h2>\n\t\t<br>\n\t\t<h3>Mensagem</h3>\n\t\t<strong>\n\t\t\t" + text + "\t\t\n\t\t</strong>\n\t\n\t"
     }).then(function (message) {
         return message;
